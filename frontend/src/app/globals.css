@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-navy: #142d2b;
+  --brand-green: #25d366;
+  --brand-secondary: #128c5e;
+  --brand-soft: #eaf7ef;
+  --brand-app: #f5f8f6;
+  --ink: #263238;
+  --ink-muted: #718078;
+  --line: #e5ebe8;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: var(--ink);
+  background: var(--brand-app);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card bg-white shadow-card border border-line;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-green px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-secondary disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-brand-app disabled:opacity-60;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-danger px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-600 disabled:opacity-60;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted outline-none transition focus:border-brand-secondary focus:ring-2 focus:ring-brand-soft;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+
+  .page-title {
+    @apply text-xl font-semibold tracking-tight text-ink md:text-2xl;
+  }
+
+  .section-title {
+    @apply text-base font-semibold text-ink;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #c9d4cf;
+    border-radius: 999px;
+  }
+}
